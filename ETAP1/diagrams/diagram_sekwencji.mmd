@@ -1,0 +1,19 @@
+sequenceDiagram
+    participant GUI as GUI
+    participant ACQ as Moduł akwizycji
+    participant ENG as Silnik reguł
+    participant DB as Baza danych
+
+    GUI->>ACQ: startSession(vehicleId)
+    loop co interwał
+        ACQ->>ACQ: readOBD()
+        ACQ->>ENG: evaluate(reading)
+        ENG->>DB: save(reading, metrics)
+        alt threshold exceeded
+            ENG->>DB: save(alertEvent)
+            ENG-->>GUI: pushAlert(severity, message)
+        else normal
+            ENG-->>GUI: pushLiveMetrics()
+        end
+    end
+    GUI->>ACQ: stopSession()

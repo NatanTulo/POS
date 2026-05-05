@@ -1,0 +1,99 @@
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+}
+
+html,
+body {
+  font-size: 10.5pt;
+  line-height: 1.35;
+}
+
+.markdown-body {
+  max-width: none !important;
+  padding: 0 !important;
+}
+
+h2,
+h3 {
+  page-break-after: avoid;
+  break-after: avoid-page;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin-bottom: 10px;
+  font-size: 9pt;
+  border: 1px solid #d0d7de;
+}
+
+th,
+td {
+  padding: 5px 6px;
+  vertical-align: top;
+  word-break: break-word;
+  border: 1px solid #d0d7de;
+}
+
+th {
+  background: #eaeef2;
+}
+
+tbody tr:nth-child(odd) {
+  background: #f6f8fa;
+}
+
+tbody tr:nth-child(even) {
+  background: #ffffff;
+}
+
+table,
+thead,
+tbody,
+tr,
+th,
+td {
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+}
+
+.page-break-before {
+  page-break-before: always;
+  break-before: page;
+}
+
+.uml-diagram {
+  margin: 4mm 0 2mm 0;
+  page-break-inside: avoid;
+  break-inside: avoid;
+  text-align: center;
+}
+
+.uml-diagram img {
+  display: block;
+  margin: 0 auto;
+  height: auto;
+}
+
+.uml-diagram.component img {
+  width: 95%;
+  max-height: 180mm;
+}
+
+.uml-diagram.standard img {
+  max-width: 95%;
+  max-height: 205mm;
+}
+
+.uml-diagram.tall img {
+  max-width: 92%;
+  max-height: 185mm;
+}
+
+.uml-diagram.activity img {
+  width: 78%;
+  max-width: none;
+  max-height: 235mm;
+}

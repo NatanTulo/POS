@@ -1,0 +1,61 @@
+classDiagram
+    class Vehicle {
+      +id: UUID
+      +vin: String
+      +model: String
+      +year: Int
+    }
+
+    class MonitoringSession {
+      +id: UUID
+      +startedAt: DateTime
+      +endedAt: DateTime
+      +status: SessionStatus
+    }
+
+    class SensorReading {
+      +id: UUID
+      +timestamp: DateTime
+      +source: SourceType
+      +parameter: String
+      +value: Float
+      +unit: String
+      +quality: QualityFlag
+    }
+
+    class MetricAggregate {
+      +id: UUID
+      +window: String
+      +min: Float
+      +max: Float
+      +avg: Float
+      +stddev: Float
+    }
+
+    class AlertRule {
+      +id: UUID
+      +parameter: String
+      +operator: String
+      +threshold: Float
+      +severity: Severity
+    }
+
+    class AlertEvent {
+      +id: UUID
+      +triggeredAt: DateTime
+      +status: AlertStatus
+      +message: String
+    }
+
+    class User {
+      +id: UUID
+      +role: Role
+      +email: String
+    }
+
+    Vehicle "1" --> "0..*" MonitoringSession : has
+    MonitoringSession "1" --> "0..*" SensorReading : contains
+    MonitoringSession "1" --> "0..*" MetricAggregate : derives
+    AlertRule "1" --> "0..*" AlertEvent : triggers
+    AlertEvent "0..*" --> "1" MonitoringSession : in_session
+    User "1" --> "0..*" MonitoringSession : manages

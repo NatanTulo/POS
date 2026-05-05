@@ -1,0 +1,4 @@
+Monitorowanie parametrów pojazdu – oprogramowanie systemu (komputer, czujniki, interfejs OBD) do monitorowania, gromadzenia i analizy danych opisujących pracę podzespołów samochodu (temperatura, obroty, ciśnienie wtrysku, ładowanie akumulatora, itp.). Zebrane dane mają być przechowywane w bazie danych i udostępniane w interfejsie graficznym.
+
+
+Zidentyfikuj klienta, użytkowników końcowych i inne zainteresowane strony tematu (stakeholders); zgromadź i przeanalizuj szczegółowe wymagania funkcjonalne i pozafunkcjonalne zadań; określ scenariusze użycia i stwórz nadającą się do czytania specyfikację funkcjonalną; zawrzyj w niej diagramy UML (komponentów, klas, aktywności, inne); przedstawić specyfikację do zaliczenia. 

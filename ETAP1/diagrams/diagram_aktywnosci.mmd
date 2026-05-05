@@ -1,0 +1,17 @@
+flowchart TD
+    A([Start]) --> B[Uruchom sesję monitoringu]
+    B --> C{Połączenie OBD/czujników OK?}
+    C -- Nie --> C1[Zgłoś błąd i ponów]
+    C1 --> C
+    C -- Tak --> D[Odczytaj próbkę]
+    D --> E[Waliduj i normalizuj]
+    E --> F[Zapisz próbkę do DB]
+    F --> G[Oblicz metryki i oceń reguły]
+    G --> H{Przekroczenie progu?}
+    H -- Tak --> I[Utwórz alert i powiadom GUI]
+    H -- Nie --> J[Aktualizuj dashboard]
+    I --> K{Koniec sesji?}
+    J --> K
+    K -- Nie --> D
+    K -- Tak --> L[Zamknij sesję i zapisz podsumowanie]
+    L --> M([Stop])

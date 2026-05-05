@@ -1,0 +1,21 @@
+flowchart TB
+    subgraph Vehicle["Pojazd"]
+        ECU["ECU / Magistrala CAN"]
+        SENS["Dodatkowe czujniki"]
+    end
+
+    OBD["Adapter OBD"]
+    ING["Moduł akwizycji danych"]
+    VAL["Walidacja i normalizacja"]
+    ANA["Silnik analizy i reguł"]
+    DB["Baza danych (TS + relacyjna)"]
+    API["API aplikacyjne"]
+    GUI["Interfejs graficzny"]
+    ALR["Usługa alertów"]
+
+    ECU --> OBD --> ING --> VAL --> ANA
+    SENS --> ING
+    VAL --> DB
+    ANA --> DB
+    DB --> API --> GUI
+    ANA --> ALR --> GUI

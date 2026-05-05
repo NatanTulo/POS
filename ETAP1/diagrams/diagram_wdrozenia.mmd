@@ -1,0 +1,22 @@
+flowchart LR
+    subgraph Car["Węzeł: Pojazd"]
+      ECU2["ECU + czujniki"]
+      OBD2["Adapter OBD (BT/WiFi/USB)"]
+      ECU2 --> OBD2
+    end
+
+    subgraph Edge["Węzeł: Komputer pokładowy / laptop"]
+      AG["Agent akwizycji"]
+      GUI2["GUI desktop/web"]
+      AG --> GUI2
+    end
+
+    subgraph Server["Węzeł: Serwer aplikacji"]
+      API2["API + analityka + alerty"]
+      DB2["Baza danych"]
+      API2 --> DB2
+    end
+
+    OBD2 --> AG
+    AG --> API2
+    GUI2 --> API2
