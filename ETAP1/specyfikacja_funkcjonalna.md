@@ -111,7 +111,7 @@ Zakres obejmuje:
 4. Użytkownik eksportuje raport CSV/JSON.
 - **Warunki końcowe:** raport zapisany, decyzja serwisowa udokumentowana.
 
-## 8. Specyfikacja interfejsów (skrót)
+## 8. Specyfikacja interfejsów
 
 ### 8.1 Interfejs OBD
 - Wejście: ramki OBD/PID + timestamp.
@@ -125,7 +125,7 @@ Zakres obejmuje:
 - `GET /vehicles/{id}/metrics?from=&to=`
 - `POST /sessions/{id}/export`
 
-## 9. Diagramy UML / modelowanie (Mermaid)
+## 9. Diagramy UML
 
 ### 9.1 Diagram komponentów
 <div class="uml-diagram component">
@@ -148,12 +148,12 @@ Zakres obejmuje:
 
 <div class="page-break-before"></div>
 
-### 9.4 Diagram sekwencji (scenariusz alertu)
+### 9.4 Diagram sekwencji
 <div class="uml-diagram tall">
   <img src="diagrams/diagram_sekwencji.svg" alt="Diagram sekwencji" />
 </div>
 
-### 9.5 Diagram wdrożenia (dodatkowy)
+### 9.5 Diagram wdrożenia
 <div class="uml-diagram standard">
   <img src="diagrams/diagram_wdrozenia.svg" alt="Diagram wdrożenia" />
 </div>
