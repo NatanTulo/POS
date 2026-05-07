@@ -1,5 +1,10 @@
-# Specyfikacja funkcjonalna
-## Projekt: Monitorowanie parametrów pojazdu
+<div style="text-align: right; margin-top: 1mm; margin-bottom: 4mm;">
+  Natan Tułodziecki 193527<br />
+  Maksymilian Szmigiel 193431<br />
+  Paweł Reich 193682<br />
+</div>
+
+# Specyfikacja - Monitorowanie parametrów pojazdu
 
 ## 1. Cel i zakres
 System służy do monitorowania, gromadzenia i analizy parametrów pracy pojazdu (m.in. temperatura, obroty, ciśnienie wtrysku, napięcie ładowania), zasilanych przez interfejs OBD i dodatkowe czujniki. Dane są utrwalane w bazie danych i udostępniane przez interfejs graficzny.
@@ -14,7 +19,7 @@ Zakres obejmuje:
 ## 2. Klient, użytkownicy końcowi i interesariusze
 
 ### 2.1 Klient
-- **Klient projektu:** prowadzący przedmiot / jednostka dydaktyczna (ocena zgodności z wymaganiami kursu).
+- **Klient projektu:** właściciel warsztatu diagnostycznego, serwisu samochodowego lub operator małej floty transportowej, poszukujący narzędzia do monitorowania stanu technicznego pojazdów.
 
 ### 2.2 Użytkownicy końcowi
 - **Kierowca / właściciel pojazdu** – podgląd stanu auta i ostrzeżeń.
