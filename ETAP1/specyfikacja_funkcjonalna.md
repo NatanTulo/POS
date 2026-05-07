@@ -73,7 +73,7 @@ Zakres obejmuje:
 | NFR-03 | Niezawodność | Utrata pojedynczej próbki nie przerywa sesji; system kontynuuje zbieranie danych. |
 | NFR-04 | Dostępność | Po restarcie usługi dane historyczne pozostają spójne i dostępne. |
 | NFR-05 | Bezpieczeństwo | Dostęp do GUI/API wymaga uwierzytelnienia i autoryzacji ról. |
-| NFR-06 | Bezpieczeństwo | Transmisja klient-serwer odbywa się po TLS (dla wdrożeń sieciowych). |
+| NFR-06 | Bezpieczeństwo | Transmisja klient-serwer odbywa się w sposób bezpieczny. |
 | NFR-07 | Użyteczność | Interfejs umożliwia odczyt najważniejszych parametrów bez konfiguracji zaawansowanej. |
 | NFR-08 | Utrzymanie | Logika akwizycji, analizy i prezentacji jest rozdzielona modułowo. |
 | NFR-09 | Obserwowalność | System publikuje metryki techniczne (czas odczytu, błędy parsera, kolejki). |
