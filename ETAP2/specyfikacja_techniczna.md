@@ -61,7 +61,7 @@ Zgodnie z wymaganiami, architektura systemu została zamodelowana z wykorzystani
 
 ## 4. Harmonogram i Podział Prac (Gantt/Sprints)
 
-Projekt został podzielony na 5 dwutygodniowych sprintów.
+Projekt został podzielony na 5 sprintów.
 
 ### 4.1 Podział ról w zespole
 * **Natan Tułodziecki:** Projekt architektury, konfiguracja repozytorium (Maintainer), moduł API i bazy danych (Backend).
@@ -70,21 +70,21 @@ Projekt został podzielony na 5 dwutygodniowych sprintów.
 
 ### 4.2 Harmonogram (Sprinty)
 
-* **Sprint 1 (Tydzień 1-2): Setup i Architektura**
+* **Sprint 1: Setup i Architektura**
   * Konfiguracja repozytorium GitHub, środowisk IDE.
   * Opracowanie ostatecznych schematów UML.
   * Postawienie szkieletów aplikacji backendowej i frontendowej (Hello World).
-* **Sprint 2 (Tydzień 3-4): Akwizycja Danych**
+* **Sprint 2: Akwizycja Danych**
   * [Paweł] Nawiązanie stabilnego połączenia z adapterem ELM327 (FR-01).
   * [Paweł] Odczyt i normalizacja RPM, MAP/MAF, temperatury (FR-02, FR-04).
   * [Natan] Zapis surowych danych i agregatów do bazy (FR-06).
-* **Sprint 3 (Tydzień 5-6): Widoki Live i API**
+* **Sprint 3: Widoki Live i API**
   * [Natan] Opracowanie endpointów API m.in. dla `GET /sessions/{id}/readings` (FR-12).
   * [Maksymilian] Podłączenie GUI do API, renderowanie danych na żywo bez przeładowywania (FR-07).
-* **Sprint 4 (Tydzień 7-8): Alerty, Historia i DTC**
+* **Sprint 4: Alerty, Historia i DTC**
   * [Maksymilian] Implementacja interfejsu do analizy historii i porównywania sesji (FR-09).
   * [Natan] Logika reguł progowych, generowanie alertów i wylistowanie kodów DTC (FR-08, FR-10).
-* **Sprint 5 (Tydzień 9-10): Szlifowanie i Testy**
+* **Sprint 5: Szlifowanie i Testy**
   * Implementacja eksportu danych do CSV/JSON (FR-11).
   * Audyt NFR (wymagań niefunkcjonalnych), optymalizacja opóźnień poniżej 2 s (NFR-01).
   * Zabezpieczenie systemu i przygotowanie finalnej dokumentacji (NFR-05, FR-13).
