@@ -1,0 +1,264 @@
+/*
+ * @file light-mode.css
+ * @brief Arkusz stylów wymuszający jasny motyw (light mode) dla dokumentacji Doxygen.
+ * @details Nadpisuje domyślne ciemne kolory Doxygen 1.16 białym tłem,
+ *          ciemnym tekstem i jasnymi elementami interfejsu.
+ */
+
+/* Główne tło strony */
+html, body, div.contents {
+    background-color: #ffffff !important;
+    color: #222222 !important;
+}
+
+/* Nagłówek i title area */
+#titlearea {
+    background-color: #f5f5f5 !important;
+    border-bottom: 1px solid #ddd !important;
+}
+
+#projectname {
+    color: #333333 !important;
+}
+
+#projectnumber {
+    color: #666666 !important;
+}
+
+#projectbrief {
+    color: #555555 !important;
+}
+
+/* Navtree (panel boczny) */
+#nav-tree {
+    background-color: #fafafa !important;
+}
+
+#nav-tree .item {
+    color: #333333 !important;
+}
+
+#nav-tree .label {
+    color: #333333 !important;
+}
+
+#nav-tree .selected {
+    background-color: #e8e8e8 !important;
+}
+
+/* Linki */
+a, a:visited, a:hover, a:focus {
+    color: #3366cc !important;
+}
+
+a.elRef, a.el:visited {
+    color: #3366cc !important;
+}
+
+/* Tabelki i ramki */
+table.memberdecls {
+    background-color: #ffffff !important;
+}
+
+.memItemLeft, .memItemRight, .memTemplItemLeft, .memTemplItemRight {
+    background-color: #f9f9f9 !important;
+    border: 1px solid #e0e0e0 !important;
+}
+
+.memSeparator {
+    border-bottom: 1px solid #e0e0e0 !important;
+}
+
+/* Bloki kodu */
+div.fragment {
+    background-color: #f5f5f5 !important;
+    border: 1px solid #ccc !important;
+    color: #222222 !important;
+}
+
+div.line {
+    color: #222222 !important;
+}
+
+/* Nagłówki sekcji */
+h1, h2, h3, h4, h5, h6 {
+    color: #333333 !important;
+}
+
+h2.groupheader {
+    color: #444444 !important;
+    border-bottom: 1px solid #ccc !important;
+}
+
+/* Przyciski i elementy interfejsu */
+div.tabs li a {
+    background-color: #f0f0f0 !important;
+    color: #333333 !important;
+}
+
+div.tabs li a:hover {
+    background-color: #e0e0e0 !important;
+}
+
+div.tabs li.current a {
+    background-color: #ffffff !important;
+    color: #222222 !important;
+}
+
+/* Pasek wyszukiwania */
+#MSearchBox {
+    background-color: #ffffff !important;
+    border: 1px solid #ccc !important;
+}
+
+/* Footer */
+div.footer {
+    background-color: #f5f5f5 !important;
+    color: #666666 !important;
+}
+
+/* Kotwice i etykiety */
+span.keyword {
+    color: #0066cc !important;
+}
+
+span.keywordtype {
+    color: #663399 !important;
+}
+
+span.keywordflow {
+    color: #0066cc !important;
+}
+
+span.comment {
+    color: #008000 !important;
+}
+
+span.stringliteral {
+    color: #cc6600 !important;
+}
+
+span.charliteral {
+    color: #cc6600 !important;
+}
+
+span.preprocessor {
+    color: #804000 !important;
+}
+
+/* Legacy - stare DIV */
+.navpath ul {
+    background-color: #f0f0f0 !important;
+    border: 1px solid #ddd !important;
+}
+
+/* Tabs */
+.tabs, .tabs2, .tabs3 {
+    background-color: #f0f0f0 !important;
+}
+
+.tabs a, .tabs2 a, .tabs3 a {
+    color: #555555 !important;
+}
+
+.tabs a:hover, .tabs2 a:hover, .tabs3 a:hover {
+    background-color: #e4e4e4 !important;
+}
+
+/* Dla klasy summary */
+table.memberdecls tr.heading td {
+    background-color: #eef !important;
+}
+
+/* highlight box */
+div.ah {
+    background-color: #f0f0f0 !important;
+    color: #333 !important;
+}
+
+/* Tabela w klasach */
+table.doxtable tr th {
+    background-color: #e0e0e0 !important;
+    color: #333 !important;
+}
+
+/* Admonition blocks */
+dl.note, dl.warning, dl.todo, dl.bug, dl.deprecated {
+    border-color: #ccc !important;
+    background-color: #f9f9f9 !important;
+}
+
+/* Summary of members */
+.memdoc, dl.reflist dd {
+    background-color: #fcfcfc !important;
+    border: 1px solid #ddd !important;
+}
+
+.memproto, dl.reflist dt {
+    background-color: #eef !important;
+    border: 1px solid #ddd !important;
+    color: #333 !important;
+}
+
+/* Directory tree */
+div.directory {
+    background-color: #fafafa !important;
+    border: 1px solid #ddd !important;
+}
+
+div.directory tr.even {
+    background-color: #f5f5f5 !important;
+}
+
+/* Image background */
+div.image img {
+    background-color: #ffffff !important;
+}
+
+/* Doxygen navigation */
+#nav-path ul {
+    background-color: #f0f0f0 !important;
+    border: 1px solid #ddd !important;
+}
+
+/* Scrollbar feedback */
+.ui-widget-content {
+    background: #ffffff !important;
+    border: 1px solid #ccc !important;
+}
+
+/* Syntex highligting adjustments */
+span.lineno {
+    color: #999 !important;
+    border-right: 1px solid #ccc !important;
+}
+
+code {
+    background-color: #f5f5f5 !important;
+    color: #333 !important;
+}
+
+/* Group header */
+div.groupHeader {
+    color: #444 !important;
+}
+
+/* Text block */
+div.textblock {
+    color: #222 !important;
+}
+
+/* Parameter name */
+dl.params dt {
+    color: #333 !important;
+}
+
+/* Details */
+div.details {
+    color: #444 !important;
+}
+
+/* Icon */
+img.footer {
+    filter: none !important;
+}
