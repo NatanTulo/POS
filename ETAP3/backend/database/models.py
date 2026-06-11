@@ -72,13 +72,13 @@ class SensorReading(Base):
     ## @brief Unikalny identyfikator odczytu.
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
 
-    ## @brief Klucz obcy do tabeli sesji.
+    ## @brief Klucz obcy do tabeli sesji (indeksowany).
     session_id: Mapped[int] = mapped_column(
-        Integer, ForeignKey("sessions.id"), nullable=False
+        Integer, ForeignKey("sessions.id"), nullable=False, index=True
     )
 
-    ## @brief Nazwa parametru (np. @c rpm , @c coolant_temp , @c maf ).
-    parameter: Mapped[str] = mapped_column(String(50), nullable=False)
+    ## @brief Nazwa parametru (np. @c rpm , @c coolant_temp , @c maf ) (indeksowana).
+    parameter: Mapped[str] = mapped_column(String(50), nullable=False, index=True)
 
     ## @brief Znormalizowana wartość liczbowa odczytu.
     value: Mapped[float] = mapped_column(Float, nullable=False)
@@ -89,8 +89,9 @@ class SensorReading(Base):
     ## @brief Źródło danych: @c obd lub @c external .
     source: Mapped[str] = mapped_column(String(20), nullable=False)
 
-    ## @brief Znacznik czasu wykonania odczytu.
-    timestamp: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    ## @brief Znacznik czasu wykonania odczytu (indeksowany).
+    timestamp: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, index=True)
+
 
     ## @brief Relacja do rodzica – sesji monitorowania.
     session: Mapped["Session"] = relationship(back_populates="readings")
@@ -108,13 +109,13 @@ class Alert(Base):
     ## @brief Unikalny identyfikator alertu.
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
 
-    ## @brief Klucz obcy do tabeli sesji.
+    ## @brief Klucz obcy do tabeli sesji (indeksowany).
     session_id: Mapped[int] = mapped_column(
-        Integer, ForeignKey("sessions.id"), nullable=False
+        Integer, ForeignKey("sessions.id"), nullable=False, index=True
     )
 
-    ## @brief Poziom ważności: @c info , @c warning , @c critical .
-    severity: Mapped[str] = mapped_column(String(20), nullable=False)
+    ## @brief Poziom ważności: @c info , @c warning , @c critical (indeksowany).
+    severity: Mapped[str] = mapped_column(String(20), nullable=False, index=True)
 
     ## @brief Treść komunikatu alertu.
     message: Mapped[str] = mapped_column(Text, nullable=False)
@@ -128,8 +129,8 @@ class Alert(Base):
     ## @brief Rzeczywista wartość odczytu w momencie wywołania alertu.
     actual_value: Mapped[float] = mapped_column(Float, nullable=False)
 
-    ## @brief Znacznik czasu wygenerowania alertu.
-    timestamp: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    ## @brief Znacznik czasu wygenerowania alertu (indeksowany).
+    timestamp: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, index=True)
 
     ## @brief Relacja do rodzica – sesji monitorowania.
     session: Mapped["Session"] = relationship(back_populates="alerts")
@@ -147,8 +148,8 @@ class EventLog(Base):
     ## @brief Unikalny identyfikator zdarzenia.
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
 
-    ## @brief Poziom zdarzenia: @c DEBUG , @c INFO , @c WARNING , @c ERROR .
-    level: Mapped[str] = mapped_column(String(20), nullable=False)
+    ## @brief Poziom zdarzenia: @c DEBUG , @c INFO , @c WARNING , @c ERROR (indeksowany).
+    level: Mapped[str] = mapped_column(String(20), nullable=False, index=True)
 
     ## @brief Źródło zdarzenia (nazwa modułu).
     source: Mapped[str] = mapped_column(String(100), nullable=False)
@@ -156,5 +157,5 @@ class EventLog(Base):
     ## @brief Treść komunikatu zdarzenia.
     message: Mapped[str] = mapped_column(Text, nullable=False)
 
-    ## @brief Znacznik czasu wystąpienia zdarzenia.
-    timestamp: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    ## @brief Znacznik czasu wystąpienia zdarzenia (indeksowany).
+    timestamp: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, index=True)

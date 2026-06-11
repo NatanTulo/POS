@@ -39,7 +39,7 @@ engine = create_engine(
 # @details Każde żądanie HTTP tworzy własną sesję przez zależność
 #          wstrzykiwaną przez FastAPI.
 ##
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, expire_on_commit=False, bind=engine)
 
 ## @brief Logger dla modułu bazy danych.
 logger = logging.getLogger(__name__)

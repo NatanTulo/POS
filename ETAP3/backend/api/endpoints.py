@@ -24,6 +24,8 @@ from backend.database.connection import get_db
 from backend.database.models import Alert, EventLog, SensorReading, Session
 from backend.obd.interface import ObdInterface, ObdParameter
 from backend.sensors.interface import ExternalSensorInterface
+from backend.database.alerts import check_reading_threshold
+from backend.database.logging_db import log_event
 
 ## @brief Router API z przedrostkiem /api/v1 (rejestrowany w main.py).
 router = APIRouter()
@@ -113,9 +115,10 @@ def create_session(
     """
     session = Session(vehicle_id=vehicle_id, status="active")
     db.add(session)
+    db.flush()
+    log_event("INFO", "api.endpoints", f"Created session {session.id} for vehicle {vehicle_id}", db=db)
     db.commit()
     db.refresh(session)
-    logger.info("Created session %d for vehicle %s", session.id, vehicle_id)
     return session
 
 
@@ -137,9 +140,9 @@ def stop_session(session_id: int, db: SQLSession = Depends(get_db)):
         raise HTTPException(status_code=409, detail="Session is not active")
     session.status = "completed"
     session.end_time = datetime.utcnow()
+    log_event("INFO", "api.endpoints", f"Stopped session {session_id}", db=db)
     db.commit()
     db.refresh(session)
-    logger.info("Stopped session %d", session_id)
     return session
 
 
@@ -242,6 +245,15 @@ def collect_readings(
         )
         db.add(record)
         saved.append(record)
+        # Check threshold limits
+        check_reading_threshold(
+            db=db,
+            session_id=session_id,
+            parameter=record.parameter,
+            value=record.value,
+            unit=record.unit,
+            timestamp=record.timestamp,
+        )
 
     for ext_reading in external_readings:
         record = SensorReading(
@@ -254,13 +266,21 @@ def collect_readings(
         )
         db.add(record)
         saved.append(record)
+        # Check threshold limits
+        check_reading_threshold(
+            db=db,
+            session_id=session_id,
+            parameter=record.parameter,
+            value=record.value,
+            unit=record.unit,
+            timestamp=record.timestamp,
+        )
 
+    log_event("INFO", "api.endpoints", f"Collected {len(saved)} readings for session {session_id}", db=db)
     db.commit()
-    for r in saved:
-        db.refresh(r)
-
-    logger.info("Collected %d readings for session %d", len(saved), session_id)
+    # Optimized: Removed slow db.refresh loop that triggered SELECT queries for every record.
     return saved
+
 
 
 @router.get("/sessions/{session_id}/export")

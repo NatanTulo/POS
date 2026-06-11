@@ -1,0 +1,54 @@
+# ====================================================================
+# Git Ignore - System monitorowania parametrów pojazdu
+# ====================================================================
+
+# Środowiska wirtualne Python
+.venv/
+venv/
+ENV/
+env/
+
+# Pamięć podręczna kompilacji Pythona (Bytecode)
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# Pliki baz danych (SQLite) i logów lokalnych
+*.db
+*.db-journal
+*.db-wal
+*.sqlite3
+vehicle_monitor.db
+
+# Narzędzia testowe i metryki pokrycia kodu (pytest / coverage)
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.cov/
+nosetests.xml
+coverage.xml
+.hypothesis/
+
+# Konfiguracje edytorów i środowisk programistycznych (IDEs)
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+.project
+.pydevproject
+.settings/
+
+# Wygenerowana dokumentacja przez Doxygen
+**/docs/html/
+**/docs/latex/
+ETAP3/backend/docs/
+
+# Systemowe pliki tymczasowe
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
